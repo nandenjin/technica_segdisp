@@ -1,6 +1,7 @@
 
 const PixelData = require( './PixelData.js' );
 
+const segmentMap = require( '../presets/segments.json' );
 const characterPreset = require( '../presets/characters/index.js' );
 
 const PIXELS_PER_CHAR = 46;
@@ -60,6 +61,23 @@ class DisplayData {
       this[ k ] = opt[ k ] !== undefined ? opt[ k ] : this[ k ];
 
     } );
+
+    return this;
+
+  }
+
+
+  setSegments( offset, segString, sw ) {
+
+    for( let i = 0; i < segString.length; i++ ){
+
+      const map = segmentMap[ segString.charAt( i ) ];
+
+      if( map ) map.forEach( pi => this.setPixel( pi + PIXELS_PER_CHAR * offset, sw ) );
+
+    }
+
+    return this;
 
   }
 
