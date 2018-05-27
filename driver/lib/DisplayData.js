@@ -74,12 +74,16 @@ class DisplayData {
     else if( sw === true ) pixel.copy( this.defaultPixel );
     else pixel.copy( sw );
 
+    return this;
+
   }
 
 
   clear() {
 
     this.data.forEach( p => p.clear() );
+
+    return this;
 
   }
 
@@ -98,6 +102,8 @@ class DisplayData {
         .forEach( p => { this.setPixel( p, formatPixel || true ); } );
 
     }
+
+    return this;
 
   }
 
