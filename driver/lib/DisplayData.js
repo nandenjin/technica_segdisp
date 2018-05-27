@@ -108,7 +108,11 @@ class DisplayData {
 
   getData() {
 
-    return this.data;
+    const data = new Uint8ClampedArray( this.data.length );
+
+    for( let i = 0; i < this.data.length; i++ ) data[ i ] = this.data[ i ];
+
+    return data;
 
   }
 
