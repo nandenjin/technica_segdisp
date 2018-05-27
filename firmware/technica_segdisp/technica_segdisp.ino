@@ -6,6 +6,9 @@
 // 出力ピン
 #define PIN 13
 
+// シリアル接続
+#define SERIAL_RATE 500000
+
 // 発光ピクセル数
 #define NUMPIXELS 184
 
@@ -24,7 +27,7 @@ void setup() {
   pixels.begin();
 
   // シリアルポート開始
-  Serial.begin(115200);
+  Serial.begin( SERIAL_RATE );
 
   // 点灯状態をクリアする
   clearPixels();
@@ -38,28 +41,24 @@ void loop() {
 
     uint8_t d = Serial.read();
 
-    // ヘッダー（0xff）
+    // デリミタ（0xff）
     if( d == 255 ){
 
       // 配列のインデックスを初期化する
       index = 0;
 
     // データ
-    }else if( 0 <= index && index < NUMPIXELS * 4 ){
+    }else if( index <= NUMPIXELS * 4 && d != -1 ){
 
       // 配列に格納、インデックスをひとつ進める
       receivedData[ index ] = d;
       index++;
 
-      // 所定のデータ量が集まったら
-      if( NUMPIXELS * 4 <= index ){
+      if( index == NUMPIXELS * 4 ){
 
-        // インデックスをリセット
         index = -1;
-
-        // LEDの状態を更新
         showPixels( receivedData );
-
+        
       }
       
     }
