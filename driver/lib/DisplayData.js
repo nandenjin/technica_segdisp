@@ -106,6 +106,13 @@ class DisplayData {
   }
 
 
+  getData() {
+
+    return this.data;
+
+  }
+
+
   clear() {
 
     this.data.forEach( p => p.clear() );
