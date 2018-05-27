@@ -97,6 +97,15 @@ class DisplayData {
   }
 
 
+  loadData( dataArray ) {
+
+    for( let i = 0; i < dataArray.length; i++ ) this.data[ i ] = dataArray[ i ];
+
+    return this;
+
+  }
+
+
   clear() {
 
     this.data.forEach( p => p.clear() );
