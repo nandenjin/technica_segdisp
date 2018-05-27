@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nandenjin/technica_segdisp/issues"
   },
-  "homepage": "https://github.com/nandenjin/technica_segdisp#readme"
+  "homepage": "https://github.com/nandenjin/technica_segdisp#readme",
+  "dependencies": {
+    "serialport": "^6.2.0"
+  }
 }
