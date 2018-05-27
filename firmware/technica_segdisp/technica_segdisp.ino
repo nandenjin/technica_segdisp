@@ -3,7 +3,10 @@
 #include <avr/power.h>
 #endif
 
+// 出力ピン
 #define PIN 13
+
+// 発光ピクセル数
 #define NUMPIXELS 184
 
 void showPixels( uint8_t *data );
@@ -14,6 +17,7 @@ int index = -1;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_RGBW + NEO_KHZ800);
 
+
 void setup() {
 
   // LEDライブラリ開始
@@ -22,32 +26,39 @@ void setup() {
   // シリアルポート開始
   Serial.begin(115200);
 
+  // 点灯状態をクリアする
   clearPixels();
   
 }
+
 
 void loop() {
 
   while( Serial.available() ){
 
     uint8_t d = Serial.read();
-    
+
+    // ヘッダー（0xff）
     if( d == 255 ){
-      
+
+      // 配列のインデックスを初期化する
       index = 0;
-      // Serial.write( 'H' );
-  
+
+    // データ
     }else if( 0 <= index && index < NUMPIXELS * 4 ){
 
+      // 配列に格納、インデックスをひとつ進める
       receivedData[ index ] = d;
       index++;
-      // Serial.write( 'D' );
-      
+
+      // 所定のデータ量が集まったら
       if( NUMPIXELS * 4 <= index ){
-      
+
+        // インデックスをリセット
         index = -1;
+
+        // LEDの状態を更新
         showPixels( receivedData );
-      // Serial.write( 'E' );
 
       }
       
@@ -58,6 +69,9 @@ void loop() {
 }
 
 
+/*
+ * RGBWデータ配列にしたがって点灯させる
+ */
 void showPixels( uint8_t *data ){
   
   for (int i = 0; i < NUMPIXELS; i++) {
@@ -76,6 +90,10 @@ void showPixels( uint8_t *data ){
   
 }
 
+
+/*
+ * 全てのドットを消灯
+ */
 void clearPixels(){
   
   for (int i = 0; i < NUMPIXELS; i++) {
