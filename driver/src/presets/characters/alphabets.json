@@ -1,0 +1,36 @@
+{
+
+  "format": "segments",
+
+  "presets": {
+
+    "A": "abfmndk",
+    "B": "fmnigkh",
+    "C": "fabi",
+    "D": "fmnigh",
+    "E": "fabidk",
+    "F": "fabdk",
+    "G": "fabink",
+    "H": "abdkmn",
+    "I": "fghi",
+    "J": "mnib",
+    "K": "abdlj",
+    "L": "abi",
+    "M": "abelmn",
+    "N": "abejmn",
+    "O": "abinmf",
+    "P": "abfmdk",
+    "Q": "abimnfj",
+    "R": "abfmdkj",
+    "S": "feji",
+    "T": "fgh",
+    "U": "abimn",
+    "V": "abcl",
+    "W": "abcjmn",
+    "X": "elcj",
+    "Y": "elh",
+    "Z": "flci"
+
+  }
+
+}

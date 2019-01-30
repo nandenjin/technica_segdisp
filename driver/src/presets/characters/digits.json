@@ -1,0 +1,27 @@
+{
+
+  "format": "segments",
+
+  "presets": {
+
+    "0": "abfmnilc",
+    "1": "mn",
+    "2": "fmdkbi",
+    "3": "fmdkni",
+    "4": "adkmn",
+    "5": "fadkni",
+    "6": "afbdkni",
+    "7": "afmn",
+    "8": "afmdkbni",
+    "9": "afmdkni",
+
+    "+": "dgkh",
+    "-": "dk",
+    "*": "egldkchj",
+    "/": "cl",
+
+    "_": "i"
+
+  }
+
+}
