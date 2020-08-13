@@ -26,10 +26,10 @@ var sp = new SerialPort( portName, { baudRate: 500000 }, ( err ) => {
 
       switch( i % 4 ){
 
-        case 0: com[ i ] = o % 4 == 0 ? 0xfe : 0; break;
-        case 1: com[ i ] = o % 4 == 1 ? 0xfe : 0; break;
-        case 2: com[ i ] = o % 4 == 2 ? 0xfe : 0; break;
-        case 3: com[ i ] = o % 4 == 3 ? 0xfe : 0; break;
+        case 0: com[ i ] = o % 4 == 0 ? 254 : 0; break;
+        case 1: com[ i ] = o % 4 == 1 ? 254 : 0; break;
+        case 2: com[ i ] = o % 4 == 2 ? 254 : 0; break;
+        case 3: com[ i ] = o % 4 == 3 ? 254 : 0; break;
 
       }
 
@@ -45,7 +45,7 @@ var sp = new SerialPort( portName, { baudRate: 500000 }, ( err ) => {
     // console.log( p.join( ' ' ) );
 
     sp.write( new Buffer( p ) );
-
+    console.log( p.join( ' ' ) );
 
     o++;
     if( o >= com.length ) o = 0;

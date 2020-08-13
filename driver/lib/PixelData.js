@@ -48,6 +48,15 @@ class PixelData {
 
   }
 
+  fromDataArray( dataArray ) {
+
+    this.color.set( dataArray[ 0 ], dataArray[ 1 ], dataArray[ 2 ], dataArray[ 3 ] );
+    this.intensity = 1;
+
+    return this;
+
+  }
+
   toDataArray() {
 
     const data = new Uint8ClampedArray( 4 );

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    
+    <meta charset="utf-8">
+    <title>Segdisp Console - Tsukuba Technica</title>
+
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex">
+
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+
+  <body>
+
+    <div id="app">
+      
+      <textarea v-model="text"></textarea>
+      <button @click="sendUpdate( generateData() )">Send</button>
+
+      <input type="range" min="100" max="3000" v-model="interval">
+
+      <div>R: <input type="range" min="0" max="255" v-model="color.r"></div>
+      <div>G: <input type="range" min="0" max="255" v-model="color.g"></div>
+      <div>B: <input type="range" min="0" max="255" v-model="color.b"></div>
+      <div>W: <input type="range" min="0" max="255" v-model="color.w"></div>
+
+      <ul class="selector">
+        <li v-for="motion in motions" @click="motionId=motion" :class="{ active: motionId == motion }">{{ motion }}</li>
+      </ul>
+
+    </div>
+
+    <script src="/node_modules/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+
+</html>

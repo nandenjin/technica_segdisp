@@ -32,7 +32,25 @@ class DisplayData {
   }
 
 
-  toPixelArray() {
+  fromDataArray( dataArray ) {
+
+    for( let i = 0; i < dataArray.length / 4; i++ ){
+
+      this.data[ i ].fromDataArray( [
+        dataArray[ i * 4 + 0 ], 
+        dataArray[ i * 4 + 1 ],
+        dataArray[ i * 4 + 2 ],
+        dataArray[ i * 4 + 3 ],
+      ] );
+
+    }
+
+    return this;
+
+  }
+
+
+  toDataArray() {
 
     const charLength = this.charLength;
 
@@ -93,26 +111,6 @@ class DisplayData {
     else pixel.copy( sw );
 
     return this;
-
-  }
-
-
-  loadData( dataArray ) {
-
-    for( let i = 0; i < dataArray.length; i++ ) this.data[ i ] = dataArray[ i ];
-
-    return this;
-
-  }
-
-
-  getData() {
-
-    const data = new Uint8ClampedArray( this.data.length );
-
-    for( let i = 0; i < this.data.length; i++ ) data[ i ] = this.data[ i ];
-
-    return data;
 
   }
 

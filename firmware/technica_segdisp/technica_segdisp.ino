@@ -10,7 +10,7 @@
 #define SERIAL_RATE 500000
 
 // 発光ピクセル数
-#define NUMPIXELS 184
+#define NUMPIXELS 184q
 
 void showPixels( uint8_t *data );
 void clearPixels();

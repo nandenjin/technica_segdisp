@@ -69,7 +69,7 @@ class DeviceClient {
 
   send( displayData ) {
 
-    this._data = displayData.toPixelArray();
+    this._data = displayData.toDataArray();
 
   }
 
