@@ -6,7 +6,7 @@
   "dependencies": {
     "artnet": "^1.4.0",
     "dat.gui": "^0.7.5",
-    "electron": "^4.0.2",
+    "electron": "^7.2.4",
     "uuid": "^3.3.2",
     "vm2": "^3.6.6",
     "vue": "^2.5.22",
